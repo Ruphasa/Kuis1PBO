@@ -7,6 +7,7 @@ public class Kursus {
     private Video video;
     private Artikel artikel;
     private Kuis kuis;
+    private int harga;
 
     void melihatIsiKontent(){
         if (bentukKontent.equals("materi")) {
@@ -39,5 +40,13 @@ public class Kursus {
     void tampilKontent() {
         System.out.println("Mata pelajaran: " + mataPelajaran);
         System.out.println("Bentuk konten: " + bentukKontent);
+    }
+
+    String getMataPelajaran(){
+        return mataPelajaran;
+    }
+
+    int getHarga(){
+        return harga;
     }
 }
