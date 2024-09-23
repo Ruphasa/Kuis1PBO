@@ -42,4 +42,3 @@ class Peserta {
         this.nama = nama;
     }
 }
-

@@ -1,5 +1,4 @@
 public class Instruktur {
-    private DataBase db = new DataBase();
     private String namaInstruktur;
     private String matapelajaran;
 

@@ -1,7 +1,6 @@
+import java.util.Scanner;
+
 public class Kursus {
-    private Kursus next;
-    private Kursus prev;
-    private Kursus head;
     private String mataPelajaran;
     private String bentukKontent;
     private MateriPembelajaran materiPembelajaran;
@@ -21,32 +20,24 @@ public class Kursus {
         }
     }
 
-    void melihatSemuaKursus(){
-        Kursus temp = head;
-        while (temp != null) {
-            System.out.println(temp.mataPelajaran);
-            temp = temp.prev;
-        }
+    void setMateriPembelajaran(String judul, String isiMateri) {
+        MateriPembelajaran materi = new MateriPembelajaran(judul, isiMateri);
     }
 
-    void tambahKontent(String matapelajaran, String bentukKontent){
-        Kursus temp=head;
-        while (temp!=null) {
-            if (matapelajaran.equals(temp.mataPelajaran)) {
-                while (temp!=null) {
-                    temp = temp.next;
-                }
-                if (bentukKontent.equals("materi")) {
-                    temp.materiPembelajaran = new MateriPembelajaran();
-                }else if (bentukKontent.equals("video")) {
-                    temp.video = new Video();
-                }else if (bentukKontent.equals("artikel")) {
-                    temp.artikel = new Artikel();
-                }else if (bentukKontent.equals("kuis")) {
-                    temp.kuis = new Kuis();
-                }
-            }
-            temp = temp.prev;
-        }
+    void setVideo(String judulVideo, String urlVideo, int durasi) {
+        Video video = new Video(judulVideo, urlVideo, durasi);
+    }
+    
+    void setArtikel(String judulArtikel, String isiArtikel) {
+        Artikel artikel = new Artikel(judulArtikel, isiArtikel);
+    }
+
+    void setKuis(String judulKuis, int banyakPertanyaan,String[] pertanyaan, String[] jawaban) {
+        Kuis kuis = new Kuis(judulKuis, banyakPertanyaan, pertanyaan, jawaban);
+    }
+
+    void tampilKontent() {
+        System.out.println("Mata pelajaran: " + mataPelajaran);
+        System.out.println("Bentuk konten: " + bentukKontent);
     }
 }

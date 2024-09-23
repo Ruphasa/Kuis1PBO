@@ -4,7 +4,7 @@ public class Kuis {
     private String[] jawaban;
 
     // Constructor
-    public Kuis(String judulKuis, String[] pertanyaan, String[] jawaban) {
+    public Kuis(String judulKuis, int banyakPertanyaan, String[] pertanyaan, String[] jawaban) {
         this.judulKuis = judulKuis;
         this.pertanyaan = pertanyaan;
         this.jawaban = jawaban;
