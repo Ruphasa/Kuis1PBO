@@ -6,6 +6,7 @@ public class DataBase {
     private Kursus kursus[] = new Kursus[0];
 
     void tambahInstruktur(String nama, String mapel) {
+    void tambahInstruktur(String nama, String mapel) {
         Instruktur temp[] = new Instruktur[instruktur.length + 1];
         for (int i = 0; i < instruktur.length; i++) {
             temp[i] = instruktur[i];
