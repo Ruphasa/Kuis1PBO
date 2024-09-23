@@ -75,4 +75,16 @@ public class DataBase {
             kursus[i].tampilKontent();
         }
     }
+
+    int getKursusLength(){ 
+        return kursus.length;
+    }
+
+    String getNamaKontent(int index) {
+        return kursus[index].getMataPelajaran();
+    }
+
+    int getHargaKontent(int index) {
+        return kursus[index].getHarga();
+    }
 }
