@@ -8,6 +8,7 @@ public class main {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
+          
             System.out.println("+-----------------------------------------+");
             System.out.println("|                 Login                   |");
             System.out.println("+-----------------------------------------+");
@@ -18,6 +19,7 @@ public class main {
             clear();
             if (username.equals("admin") && password.equals("admin")) {
                 while (true) {
+                   
                     System.out.println("+-----------------------------------------+");
                     System.out.println("|               Menu Admin                |");
                     System.out.println("+-----------------------------------------+");
@@ -53,6 +55,7 @@ public class main {
                 int index = db.getIndex(username, password);
                 String newMataPelajaran = db.getMataPelajaran(index);
                 while (true) {
+                    
                     System.out.println("+-----------------------------------------+");
                     System.out.println("|               Menu Instruktur           |");
                     System.out.println("+-----------------------------------------+");
@@ -74,6 +77,7 @@ public class main {
             } else if (db.cekLoginPeserta(username, password)) {
                 while (true) {
                     Peserta peserta = db.getPeserta(username, password);
+                  
                     System.out.println("+-----------------------------------------+");
                     System.out.println("|               Menu Peserta              |");
                     System.out.println("+-----------------------------------------+");
@@ -84,6 +88,7 @@ public class main {
                     System.out.println("+-----------------------------------------+");
                     System.out.print("Pilih: ");
                     int pilih = sc.nextInt();
+                    clear();
                     sc.nextLine();
                     if (pilih == 1) {
                         db.tampilkanSemuaKontent();
@@ -94,7 +99,7 @@ public class main {
                         int harga = db.getHargaKontent(pilihKursus);
                         peserta.beliKursus(kursus,harga);
                     } else if (pilih == 2) {
-                        db.tampilkanKursusDiikuti();
+                        peserta.tampilkanKursusDiikuti();
                         pause();
                         clear();
                     } else if (pilih == 3) {

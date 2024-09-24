@@ -28,6 +28,7 @@ public class Peserta extends User {
                 kursusDiikuti = temp;
                 kursusDiikuti[kursusDiikuti.length-1] = new Kursus();
                 kursusDiikuti[kursusDiikuti.length-1] = kursus;
+                main.clear();
                 System.out.println("Pembayaran selesai");
                 break;
             }

@@ -98,6 +98,7 @@ public class DataBase {
             newKursus.setKuis(judulKuis, banyakPertanyaan, pertanyaan, jawaban);
         }
         daftarKursus.add(newKursus);
+        main.clear();
         System.out.println("Kursus berhasil ditambahkan.");
     }
 
