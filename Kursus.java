@@ -21,6 +21,12 @@ public class Kursus {
         }
     }
 
+    void setKursus(String mataPelajaran, String bentukKontent, int harga) {
+        this.mataPelajaran = mataPelajaran;
+        this.bentukKontent = bentukKontent;
+        this.harga = harga;
+    }
+
     void setMateriPembelajaran(String judul, String isiMateri) {
         MateriPembelajaran materi = new MateriPembelajaran(judul, isiMateri);
     }

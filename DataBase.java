@@ -5,22 +5,22 @@ public class DataBase {
     private Instruktur instruktur[] = new Instruktur[0];
     private Kursus kursus[] = new Kursus[0];
 
-    void tambahInstruktur(String nama, String mapel) {
+    void tambahInstruktur(String nama, String password, String mapel) {
         Instruktur temp[] = new Instruktur[instruktur.length + 1];
         for (int i = 0; i < instruktur.length; i++) {
             temp[i] = instruktur[i];
         }
         instruktur = temp;
-        instruktur[instruktur.length - 1] = new Instruktur(nama, mapel);
+        instruktur[instruktur.length - 1] = new Instruktur(nama, password,mapel);
     }
 
-    void tambahPeserta(String nama) {
+    void tambahPeserta(String nama, String password) {
         Peserta temp[] = new Peserta[Peserta.length + 1];
         for (int i = 0; i < Peserta.length; i++) {
             temp[i] = Peserta[i];
         }
         Peserta = temp;
-        Peserta[Peserta.length - 1] = new Peserta(nama);
+        Peserta[Peserta.length - 1] = new Peserta(nama, password);
     }
 
     void tambahKontent(String matapelajaran, String bentukKontent) {
@@ -36,6 +36,10 @@ public class DataBase {
             String judulMateri = sc.nextLine();
             System.out.println("Masukkan isi materi: ");
             String isiMateri = sc.nextLine();
+            System.out.println("Masukkan harga: ");
+            int harga = sc.nextInt();
+            sc.nextLine();
+            kursus[kursus.length - 1].setKursus(matapelajaran, bentukKontent, harga);
             kursus[kursus.length - 1].setMateriPembelajaran(judulMateri, isiMateri);
         } else if (bentukKontent.equals("video")) {
             System.out.println("Masukkan judul video: ");
@@ -45,12 +49,20 @@ public class DataBase {
             System.out.println("Masukkan durasi video (dalam detik): ");
             int durasi = sc.nextInt();
             sc.nextLine();
+            System.out.println("Masukkan harga: ");
+            int harga = sc.nextInt();
+            sc.nextLine();
+            kursus[kursus.length - 1].setKursus(matapelajaran, bentukKontent, harga);
             kursus[kursus.length - 1].setVideo(judulVideo, urlVideo, durasi);
         } else if (bentukKontent.equals("artikel")) {
             System.out.println("Masukkan judul artikel: ");
             String judulArtikel = sc.nextLine();
             System.out.println("Masukkan isi artikel: ");
             String isiArtikel = sc.nextLine();
+            System.out.println("Masukkan harga: ");
+            int harga = sc.nextInt();
+            sc.nextLine();
+            kursus[kursus.length - 1].setKursus(matapelajaran, bentukKontent, harga);
             kursus[kursus.length - 1].setArtikel(judulArtikel, isiArtikel);
         } else if (bentukKontent.equals("kuis")) {
             System.out.println("Masukkan judul kuis: ");
@@ -58,6 +70,9 @@ public class DataBase {
             System.out.println("Masukkan banyak pertanyaan: ");
             int banyakPertanyaan = sc.nextInt();
             sc.nextLine();
+            System.out.println("Masukkan harga: ");
+            int harga = sc.nextInt();
+            sc.nextLine();kursus[kursus.length - 1].setKursus(matapelajaran, bentukKontent, harga);
             String[] pertanyaan = new String[banyakPertanyaan - 1];
             String[] jawaban = new String[banyakPertanyaan - 1];
             for (int i = 0; i < banyakPertanyaan; i++) {
@@ -76,6 +91,10 @@ public class DataBase {
         }
     }
 
+    Kursus getKursus(int index) {
+        return kursus[index];
+    }
+
     int getKursusLength(){ 
         return kursus.length;
     }
@@ -86,5 +105,23 @@ public class DataBase {
 
     int getHargaKontent(int index) {
         return kursus[index].getHarga();
+    }
+
+    boolean cekLoginPeserta(String username, String password) {
+        for (int i = 0; i < Peserta.length; i++) {
+            if (username.equals(Peserta[i].getUsername()) && password.equals(Peserta[i].getPassword())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    boolean cekLoginInstruktur(String username, String password) {
+        for (int i = 0; i < instruktur.length; i++) {
+            if (username.equals(instruktur[i].getNamaInstruktur()) && password.equals(instruktur[i].getPassword())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

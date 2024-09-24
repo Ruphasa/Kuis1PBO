@@ -1,8 +1,9 @@
 public class Instruktur {
     private String namaInstruktur;
     private String matapelajaran;
+    private String password;
 
-    public Instruktur(String nama, String mapel) {
+    public Instruktur(String nama, String password, String mapel) {
         namaInstruktur = nama;
         matapelajaran = mapel;
     }
@@ -13,6 +14,10 @@ public class Instruktur {
 
     public String getNamaInstruktur() {
         return namaInstruktur;
+    }
+
+    String getPassword() {
+        return password;
     }
 
     public void setMatapelajaran(String mapel) {
