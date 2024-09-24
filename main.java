@@ -1,3 +1,4 @@
+// main.java
 import java.util.Scanner;
 
 public class main {
@@ -73,7 +74,6 @@ public class main {
                     System.out.println("| 2. Tampilkan Kursus Diikuti             |");
                     System.out.println("| 3. Belajar Kursus                       |");
                     System.out.println("| 4. Exit                                 |");
-                    System.out.println("+-----------------------------------------+");
                     System.out.print("Pilih: ");
                     int pilih = sc.nextInt();
                     sc.nextLine();

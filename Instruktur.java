@@ -1,30 +1,31 @@
-public class Instruktur {
-    private String namaInstruktur;
+// Instruktur.java
+public class Instruktur extends User {
     private String matapelajaran;
-    private String password;
 
-    public Instruktur(String nama, String password, String mapel) {
-        namaInstruktur = nama;
-        matapelajaran = mapel;
+    // Constructor for Instruktur
+    public Instruktur(String nama, String password, String matapelajaran) {
+        super(nama, password); // Call the parent constructor (User)
+        this.matapelajaran = matapelajaran;
     }
 
+    // Getter and setter for matapelajaran
     public void setNamaInstruktur(String nama) {
-        namaInstruktur = nama;
+        this.nama = nama; // Using the 'nama' from the User class
     }
 
     public String getNamaInstruktur() {
-        return namaInstruktur;
+        return nama; // Accessing the 'nama' from the User class
     }
 
-    String getPassword() {
-        return password;
-    }
-
-    public void setMatapelajaran(String mapel) {
-        matapelajaran = mapel;
+    public void setMatapelajaran(String matapelajaran) {
+        this.matapelajaran = matapelajaran;
     }
 
     public String getMatapelajaran() {
         return matapelajaran;
+    }
+
+    public String getPassword() {
+        return password; // Access the password from the User class
     }
 }
