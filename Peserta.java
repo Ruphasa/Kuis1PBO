@@ -15,7 +15,7 @@ public class Peserta extends User {
     public void beliKursus(String namaKursus) {
         for (int i = 0; i < db.getKursusLength(); i++) {
             System.out.print((i+1) + ". ");
-            db.tampilSemuaKontent();
+            db.tampilkanSemuaKontent();
         }
         System.out.print("Pilih : ");
         int pilih = sc.nextInt();
@@ -34,6 +34,10 @@ public class Peserta extends User {
                 System.out.println((i + 1) + ". " + kursusDiikuti[i].getMataPelajaran());
             }
         }
+    }
+
+    Kursus[] getKursusYangDiikuti(){
+        return kursusDiikuti;
     }
 
     // Method to study a course

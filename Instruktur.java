@@ -21,7 +21,7 @@ public class Instruktur extends User {
         this.matapelajaran = matapelajaran;
     }
 
-    public String getMatapelajaran() {
+    public String getMataPelajaran() {
         return matapelajaran;
     }
 

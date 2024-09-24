@@ -1,8 +1,8 @@
-public class MateriPembelajaran {
+public class Materi {
     private String judulMateri;
     private String mataPelajaran;
     private String isiMateri;
-    MateriPembelajaran(String judulMateri, String isiMateri) {
+    Materi(String judulMateri, String isiMateri) {
         this.judulMateri = judulMateri;
         this.isiMateri = isiMateri;
     }
