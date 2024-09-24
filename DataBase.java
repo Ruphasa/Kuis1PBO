@@ -132,15 +132,6 @@ public class DataBase {
         }
     }
 
-    // Method untuk belajar kursus (dapat diimplementasikan lebih lanjut)
-    public void belajarKursus(String mataPelajaran) {
-        for (int i = 0; i < daftarKursus.size(); i++) {
-            if (daftarKursus.get(i).getMataPelajaran().equals(mataPelajaran)) {
-                daftarKursus.get(i).melihatIsiKontent();
-            }
-        }
-    }
-
     String getMataPelajaran(int index) {
         return daftarInstruktur.get(index).getMataPelajaran();
     }
