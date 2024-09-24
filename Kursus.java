@@ -28,19 +28,19 @@ public class Kursus {
     }
 
     void setMateriPembelajaran(String judul, String isiMateri) {
-        Materi materi = new Materi(judul, isiMateri);
+        materiPembelajaran = new Materi(judul, isiMateri);
     }
 
     void setVideo(String judulVideo, String urlVideo, int durasi) {
-        Video video = new Video(judulVideo, urlVideo, durasi);
+        video = new Video(judulVideo, urlVideo, durasi);
     }
 
     void setArtikel(String judulArtikel, String isiArtikel) {
-        Artikel artikel = new Artikel(judulArtikel, isiArtikel);
+        artikel = new Artikel(judulArtikel, isiArtikel);
     }
 
     void setKuis(String judulKuis, int banyakPertanyaan, String[] pertanyaan, String[] jawaban) {
-        Kuis kuis = new Kuis(judulKuis, banyakPertanyaan, pertanyaan, jawaban);
+        kuis = new Kuis(judulKuis, banyakPertanyaan, pertanyaan, jawaban);
     }
 
     void tampilKontent() {

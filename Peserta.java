@@ -2,9 +2,9 @@
 import java.util.Scanner;
 
 public class Peserta extends User {
-    Scanner sc = new Scanner(System.in);
-    DataBase db = new DataBase();
-    private Kursus kursusDiikuti[] = new Kursus[db.getKursusLength()];
+    private Scanner sc = new Scanner(System.in);
+    private DataBase db = new DataBase();
+    private Kursus kursusDiikuti[] = new Kursus[0];
 
     // Constructor for Peserta
     public Peserta(String nama, String password) {
@@ -12,18 +12,26 @@ public class Peserta extends User {
     }
 
     // Method to buy a course
-    public void beliKursus(String namaKursus) {
-        for (int i = 0; i < db.getKursusLength(); i++) {
-            System.out.print((i+1) + ". ");
-            db.tampilkanSemuaKontent();
-        }
-        System.out.print("Pilih : ");
-        int pilih = sc.nextInt();
-        System.out.println("Bayar " + db.getHargaKontent(pilih));
+    public void beliKursus(Kursus kursus, int harga) {
+        while (true) {
+        System.out.print("Bayar " + harga + " untuk membeli " + kursus.getMataPelajaran() + ":");
         int bayar = sc.nextInt();
-        kursusDiikuti[pilih] = new Kursus();
-        kursusDiikuti[pilih] = db.getKursus(pilih);
-        System.out.println("Pembayaran selesai");
+            if (bayar != harga) {
+                System.out.println("Pembayaran gagal");
+            }else{
+                Kursus temp[] = new Kursus[kursusDiikuti.length + 1];
+                for (int i = 0; i < kursusDiikuti.length; i++) {
+                    temp[i] = kursusDiikuti[i];
+                }
+                temp[kursusDiikuti.length] = new Kursus();
+                temp[kursusDiikuti.length] = kursus;
+                kursusDiikuti = temp;
+                kursusDiikuti[kursusDiikuti.length-1] = new Kursus();
+                kursusDiikuti[kursusDiikuti.length-1] = kursus;
+                System.out.println("Pembayaran selesai");
+                break;
+            }
+        }
     }
 
     // Method to display followed courses

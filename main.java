@@ -61,6 +61,7 @@ public class main {
                     System.out.println("+-----------------------------------------+");
                     System.out.print("Pilih: ");
                     int pilih = sc.nextInt();
+                    clear();
                     sc.nextLine();
                     if (pilih == 1) {
                         System.out.print("Bentuk konten (Materi/Video/Artikel/Kuis): ");
@@ -89,7 +90,9 @@ public class main {
                         System.out.print("Pilih : ");
                         int pilihKursus = sc.nextInt();
                         clear();
-                        db.beliKursus(db.getKursus(pilihKursus - 1).getHarga());
+                        Kursus kursus = db.getKursus(pilihKursus);
+                        int harga = db.getHargaKontent(pilihKursus);
+                        peserta.beliKursus(kursus,harga);
                     } else if (pilih == 2) {
                         db.tampilkanKursusDiikuti();
                         pause();

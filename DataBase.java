@@ -87,8 +87,8 @@ public class DataBase {
             int harga = sc.nextInt();
             sc.nextLine();
             newKursus.setKursus(mataPelajaran, bentukKontent, harga);
-            String[] pertanyaan = new String[banyakPertanyaan - 1];
-            String[] jawaban = new String[banyakPertanyaan - 1];
+            String[] pertanyaan = new String[banyakPertanyaan];
+            String[] jawaban = new String[banyakPertanyaan];
             for (int i = 0; i < banyakPertanyaan; i++) {
                 System.out.print("Masukkan pertanyaan " + (i + 1) + ": ");
                 pertanyaan[i] = sc.nextLine();
@@ -137,24 +137,6 @@ public class DataBase {
         for (int i = 0; i < daftarKursus.size(); i++) {
             if (daftarKursus.get(i).getMataPelajaran().equals(mataPelajaran)) {
                 daftarKursus.get(i).melihatIsiKontent();
-            }
-        }
-    }
-
-    void beliKursus(int harga) {
-        System.out.println("Harga: " + harga);
-        System.out.println("Apakah ingin membeli kursus ini? (y/n)");
-        Scanner sc = new Scanner(System.in);
-        String pilih = sc.nextLine();
-        if (pilih.equals("y")) {
-            while (true) {
-                System.out.print("Masukkan harga kursus yang ingin dibeli : ");
-                int bayar = sc.nextInt();
-                if (bayar == harga) {
-                    System.out.println("Kursus berhasil dibeli");
-                } else {
-                    System.out.println("Kursus gagal dibeli, harga : "+ harga);
-                }
             }
         }
     }
