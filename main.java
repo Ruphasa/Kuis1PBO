@@ -77,7 +77,7 @@ public class main {
             } else if (db.cekLoginPeserta(username, password)) {
                 while (true) {
                     Peserta peserta = db.getPeserta(username, password);
-                  
+                
                     System.out.println("+-----------------------------------------+");
                     System.out.println("|               Menu Peserta              |");
                     System.out.println("+-----------------------------------------+");
@@ -89,13 +89,20 @@ public class main {
                     System.out.print("Pilih: ");
                     int pilih = sc.nextInt();
                     clear();
-                    sc.nextLine();
+                    sc.nextLine();                                              
                     if (pilih == 1) {
                         db.tampilkanSemuaKontent();
                         System.out.print("Pilih : ");
                         int pilihKursus = sc.nextInt();
                         clear();
+                        if ( pilihKursus > db.getDaftarKursusLength()) {
+                            System.out.println("Kursus tidak ditemukan");
+                            pause();
+                            clear();
+                            continue;
+                        }
                         Kursus kursus = db.getKursus(pilihKursus);
+                        
                         int harga = db.getHargaKontent(pilihKursus);
                         peserta.beliKursus(kursus,harga);
                     } else if (pilih == 2) {
@@ -105,6 +112,8 @@ public class main {
                     } else if (pilih == 3) {
                         clear();
                         peserta.belajarKursus();
+                        pause();
+                        clear();
                     } else if (pilih == 4) {
                         break;
                     }

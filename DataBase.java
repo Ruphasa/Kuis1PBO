@@ -97,9 +97,14 @@ public class DataBase {
             }
             newKursus.setKuis(judulKuis, banyakPertanyaan, pertanyaan, jawaban);
         }
-        daftarKursus.add(newKursus);
+        if (bentukKontent.equalsIgnoreCase("materi") || bentukKontent.equalsIgnoreCase("video") || bentukKontent.equalsIgnoreCase("artikel") || bentukKontent.equalsIgnoreCase("kuis")) {
+            daftarKursus.add(newKursus);
         main.clear();
         System.out.println("Kursus berhasil ditambahkan.");
+        }else{
+            System.out.println("Bentuk konten tidak ditemukan.");
+        }
+        
     }
 
     // Method untuk menampilkan semua konten yang tersedia (kursus)
@@ -117,7 +122,11 @@ public class DataBase {
 
     // Method untuk mendapatkan kursus berdasarkan index
     public Kursus getKursus(int index) {
-        return daftarKursus.get(index - 1); // Index dikurangi 1 karena array mulai dari 0
+       if (daftarKursus.isEmpty()) {
+         return null;
+       } else {
+         return daftarKursus.get(index - 1); // Index dikurangi 1 karena array mulai dari 0
+       }
     }
 
     // Method untuk mendapatkan harga konten (kursus)
@@ -153,5 +162,12 @@ public class DataBase {
             }
         }
         return null;
+    }
+    boolean daftarKursusIsEmpty() {
+        return daftarKursus.isEmpty();
+    }
+
+    int getDaftarKursusLength() {
+        return daftarKursus.size();
     }
 }
